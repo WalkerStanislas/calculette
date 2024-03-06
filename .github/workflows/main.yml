@@ -1,21 +1,23 @@
-name: calculatrice
+name: Run Tests
+
 on:
   push:
-    branches: ["master"]
+    branches:
+      - main
 
-permissions:
-  contents: read
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: installation python
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
         uses: actions/setup-python@v3
         with:
           python-version: "3.10"
-            
-      - name: exécution des tests
-          run:| 
-            python -m unittest test_add.py
+
+      - name: Execute Tests
+        run: |
+          python -m unittest test_add.py
