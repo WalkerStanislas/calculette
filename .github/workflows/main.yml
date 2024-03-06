@@ -18,4 +18,4 @@ jobs:
             
       - name: exécution des tests
           run:| 
-            test_add.py
+            python -m unittest test_add.py
